@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { Bot, Eraser, Send, Sparkles, User } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { EmergencyBox } from "@/components/health";
+import { MicButton, SpeakButton } from "@/components/Voice";
 import { Badge, Button, Card, Markdown, PageHeader } from "@/components/ui";
 import { t } from "@/lib/i18n";
 import { useStore } from "@/lib/store";
@@ -99,7 +100,7 @@ export default function AssistantPage() {
           )}
           <AnimatePresence initial={false}>
             {messages.map((m, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className={cn("flex gap-3", m.role === "user" && "flex-row-reverse")}>
+              <motion.div key={i} className={cn("page-enter flex gap-3", m.role === "user" && "flex-row-reverse")}>
                 <div className={cn("grid size-8 shrink-0 place-items-center rounded-full", m.role === "user" ? "bg-slate-200 dark:bg-slate-700" : "bg-gradient-to-br from-brand-500 to-teal-450 text-white")}>
                   {m.role === "user" ? <User className="size-4" /> : <Bot className="size-4" />}
                 </div>
@@ -112,6 +113,7 @@ export default function AssistantPage() {
                   <div className={cn("rounded-2xl px-4 py-3", m.role === "user" ? "rounded-tr-md bg-brand-600 text-white" : "surface-2 rounded-tl-md")}>
                     {m.role === "user" ? <p className="whitespace-pre-wrap text-[0.95rem]">{m.content}</p> : <Markdown text={m.content} />}
                   </div>
+                  {m.role === "assistant" && <SpeakButton text={m.content} lang={lang} />}
                   {m.role === "assistant" && (
                     <p className="px-1 text-[11px] text-muted">
                       {m.mode === "ai" ? (lang === "th" ? "ตอบโดย AI · ตรวจสอบข้อมูลสำคัญกับผู้เชี่ยวชาญเสมอ" : "AI-generated · always check important information with a professional") : `${t("demo_mode", lang)} · ${lang === "th" ? "คำตอบที่เขียนไว้ล่วงหน้า" : "pre-written answer"}`}
@@ -160,6 +162,7 @@ export default function AssistantPage() {
               aria-label="Message"
               className="max-h-32 min-h-11 flex-1 resize-none rounded-xl border border-soft surface px-3.5 py-2.5 text-sm outline-none focus:border-brand-400 focus:ring-4 focus:ring-brand-500/15"
             />
+            <MicButton lang={lang} onText={(x) => setInput((v) => (v ? v + " " : "") + x)} />
             <Button type="submit" disabled={busy || !input.trim()} className="h-11 w-11 px-0" aria-label="Send">
               <Send className="size-4" />
             </Button>

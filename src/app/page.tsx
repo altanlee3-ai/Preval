@@ -24,7 +24,7 @@ const REMINDER_TEXT: Record<string, { label: L; icon: React.ComponentType<{ clas
 };
 
 export default function Home() {
-  const { settings, records, checks, reminders, setReminders, ready } = useStore();
+  const { settings, records, checks, reminders, setReminders, ready, wellness } = useStore();
   const lang = settings.lang;
   const { data: env, place, loading } = useEnvironment();
   const [tip, setTip] = useState(() => new Date().getDate() % DAILY_TIPS.length);
@@ -52,6 +52,16 @@ export default function Home() {
   const recent = [...records].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 5);
   const enabledReminders = reminders.filter((r) => r.enabled);
   const doneToday = enabledReminders.filter((r) => r.doneDates.includes(today)).length;
+  // Prevo score: a simple daily habit score out of 100 (a guide, not a medical measure).
+  const w = wellness.find((x) => x.date === today);
+  const parts = [
+    { k: { en: "Sleep", th: "นอน" }, max: 25, v: w ? Math.min(w.sleepHours / 8, 1) * 25 : 0 },
+    { k: { en: "Water", th: "น้ำ" }, max: 20, v: w ? Math.min(w.water / 6, 1) * 20 : 0 },
+    { k: { en: "Move", th: "ขยับ" }, max: 25, v: w ? Math.min(w.activityMin / 60, 1) * 25 : 0 },
+    { k: { en: "Mood", th: "อารมณ์" }, max: 10, v: w ? ((w.mood - 1) / 4) * 10 : 0 },
+    { k: { en: "Habits", th: "นิสัย" }, max: 20, v: enabledReminders.length ? (doneToday / enabledReminders.length) * 20 : 0 },
+  ];
+  const score = Math.round(parts.reduce((a, p) => a + p.v, 0));
   const month = new Date().getMonth();
   const thai = place.country === "TH" || place.id.startsWith("geo:");
   const rainy = month >= 4 && month <= 9;
@@ -93,12 +103,12 @@ export default function Home() {
                 </LinkButton>
               </div>
             </div>
-            <div className="surface hidden shrink-0 rounded-3xl border border-soft p-5 text-center backdrop-blur md:block">
-              <p className="text-xs font-medium uppercase tracking-wider text-muted">{t("todays_overview", lang)}</p>
+            <div className="surface shrink-0 rounded-3xl border border-soft p-5 text-center backdrop-blur">
+              <p className="text-xs font-medium uppercase tracking-wider text-muted">{lang === "th" ? "คะแนน Prevo วันนี้" : "Today's Prevo score"}</p>
               <div className="relative mx-auto mt-3 grid size-28 place-items-center">
                 <svg viewBox="0 0 100 100" className="absolute inset-0 -rotate-90">
                   <circle cx="50" cy="50" r="42" fill="none" stroke="var(--surface-2)" strokeWidth="10" />
-                  <circle cx="50" cy="50" r="42" fill="none" stroke="url(#g1)" strokeWidth="10" strokeLinecap="round" strokeDasharray={264} strokeDashoffset={264 * (1 - (enabledReminders.length ? doneToday / enabledReminders.length : 0))} style={{ transition: "stroke-dashoffset .8s" }} />
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="url(#g1)" strokeWidth="10" strokeLinecap="round" strokeDasharray={264} strokeDashoffset={264 * (1 - score / 100)} style={{ transition: "stroke-dashoffset .8s" }} />
                   <defs>
                     <linearGradient id="g1">
                       <stop offset="0" stopColor="#3b93f6" />
@@ -107,12 +117,29 @@ export default function Home() {
                   </defs>
                 </svg>
                 <div>
-                  <div className="text-2xl font-bold">
-                    {doneToday}/{enabledReminders.length}
-                  </div>
-                  <div className="text-[11px] text-muted">{lang === "th" ? "นิสัยวันนี้" : "habits today"}</div>
+                  <div className="text-3xl font-bold tabular-nums">{score}</div>
+                  <div className="text-[11px] text-muted">/ 100</div>
                 </div>
               </div>
+              <div className="mt-3 flex justify-center gap-1.5">
+                {parts.map((p) => (
+                  <div key={p.k.en} className="w-10" title={`${tr(p.k, lang)} ${Math.round(p.v)}/${p.max}`}>
+                    <div className="surface-2 h-1.5 overflow-hidden rounded-full">
+                      <div className="h-full rounded-full bg-gradient-to-r from-brand-500 to-teal-450" style={{ width: `${(p.v / p.max) * 100}%` }} />
+                    </div>
+                    <p className="mt-1 text-[10px] text-muted">{tr(p.k, lang)}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-2 max-w-[15rem] text-[11px] text-muted">
+                {!w
+                  ? lang === "th"
+                    ? "ทำเช็คอินด้านล่างเพื่อรับคะแนนเต็ม"
+                    : "Do today's check-in below to fill your score"
+                  : lang === "th"
+                    ? `นิสัยวันนี้ ${doneToday}/${enabledReminders.length} · เป็นแนวทาง ไม่ใช่ค่าทางการแพทย์`
+                    : `${doneToday}/${enabledReminders.length} habits today · a guide, not a medical score`}
+              </p>
             </div>
           </div>
         </Card>

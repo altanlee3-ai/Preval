@@ -4,7 +4,7 @@ export type L = { en: string; th: string };
 export const tr = (v: L | string, lang: Lang) => (typeof v === "string" ? v : v[lang] || v.en);
 
 const dict = {
-  appName: { en: "Preval", th: "Preval" },
+  appName: { en: "Prevo", th: "Prevo" },
   tagline: { en: "Health awareness & illness prevention", th: "ความรู้สุขภาพและการป้องกันโรค" },
   nav_home: { en: "Home", th: "หน้าหลัก" },
   nav_analyze: { en: "Symptom Check", th: "ตรวจอาการ" },

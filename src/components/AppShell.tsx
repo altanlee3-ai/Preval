@@ -29,6 +29,7 @@ import { useAiStatus } from "@/lib/useAiStatus";
 import { cn } from "@/lib/utils";
 import { Badge, Button, Dialog } from "./ui";
 import { Onboarding } from "./Onboarding";
+import { ShareButton } from "./Share";
 
 const NAV: { href: string; key: DictKey; icon: React.ComponentType<{ className?: string }> }[] = [
   { href: "/", key: "nav_home", icon: House },
@@ -51,14 +52,14 @@ const MOBILE_MAIN = ["/", "/analyze", "/tracker", "/environment", "/assistant"];
 
 export function Logo({ compact }: { compact?: boolean }) {
   return (
-    <Link href="/" className="flex items-center gap-2.5" aria-label="Preval home">
+    <Link href="/" className="flex items-center gap-2.5" aria-label="Prevo home">
       <span className="grid size-9 place-items-center rounded-xl bg-gradient-to-br from-brand-500 via-brand-600 to-teal-450 text-white shadow-lg shadow-brand-500/30">
         <HeartPulse className="size-5" />
       </span>
       {!compact && (
         <span className="leading-tight">
           <span className="block text-[1.05rem] font-bold tracking-tight">
-            Pre<span className="text-brand-600 dark:text-brand-400">val</span>
+            Prev<span className="text-brand-600 dark:text-brand-400">o</span>
           </span>
           <span className="block text-[11px] text-muted">STEAM prototype</span>
         </span>
@@ -153,6 +154,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             >
               {lang === "en" ? "ไทย" : "EN"}
             </button>
+            <ShareButton />
             <button
               onClick={() => updateSettings({ theme: resolvedTheme === "dark" ? "light" : "dark" })}
               className="grid size-9 place-items-center rounded-xl border border-soft hover:bg-black/5 dark:hover:bg-white/5"

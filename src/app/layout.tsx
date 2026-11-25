@@ -4,11 +4,20 @@ import { StoreProvider } from "@/lib/store";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "Preval — Health awareness & illness prevention", template: "%s · Preval" },
+  title: { default: "Prevo — Health awareness & illness prevention", template: "%s · Prevo" },
   description: "An educational, privacy-first prototype that helps people understand symptoms, environmental health and prevention. Not a diagnostic tool.",
   manifest: "/manifest.webmanifest",
   icons: { icon: "/icons/icon.svg", apple: "/icons/icon-192.png" },
-  appleWebApp: { capable: true, title: "Preval", statusBarStyle: "default" },
+  appleWebApp: { capable: true, title: "Prevo", statusBarStyle: "default" },
+  // Link previews (LINE, Messenger, Discord…). Render sets RENDER_EXTERNAL_URL to the site's address.
+  metadataBase: new URL(process.env.RENDER_EXTERNAL_URL || "http://localhost:3000"),
+  openGraph: {
+    title: "Prevo — Health awareness & illness prevention",
+    description: "AI symptom check, habit insights, air quality & heat, and prevention tips. A STEAM project in English and Thai. Not a diagnosis.",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Prevo" }],
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
 };
 
 export const viewport: Viewport = {

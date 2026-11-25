@@ -1,20 +1,20 @@
-# Preval: Health Awareness & Illness Prevention (STEAM prototype)
+# Prevo: Health Awareness & Illness Prevention (STEAM prototype)
 
 **Prevention of Illness Using an App Interface and AI Analysis**, a Year 10 STEAM project.
 
-Preval is an educational, privacy-first web app. It helps people understand their symptoms, learn when to seek care, keep track of how they feel, and see environmental and public-health information. **It does not diagnose, prescribe or give medicine doses.**
+Prevo is an educational, privacy-first web app. It helps people understand their symptoms, learn when to seek care, keep track of how they feel, and see environmental and public-health information. **It does not diagnose, prescribe or give medicine doses.**
 
 ---
 
 ## Quick start
 
-**Windows, easiest way:** install Node.js, then double-click **`Start Preval.bat`** in this folder. The first run installs everything. After that, it starts the app and opens your browser.
+**Windows, easiest way:** install Node.js, then double-click **`Start Prevo.bat`** in this folder. The first run installs everything. After that, it starts the app and opens your browser.
 
 
 You need **Node.js 18.18 or newer** (20 or 22 recommended). Get it from https://nodejs.org.
 
 ```bash
-cd preval
+cd prevo
 npm install
 npm run dev
 ```
@@ -39,11 +39,11 @@ npm start
    GEMINI_API_KEY=your-key-here
    ```
    If you make it in Notepad, choose **Save as type: All Files** so it isn't saved as `.env.local.txt`.
-4. Close the Preval window and run `Start Preval.bat` again. The badge at the top changes from **Demonstration mode** to **Live AI**.
+4. Close the Prevo window and run `Start Prevo.bat` again. The badge at the top changes from **Demonstration mode** to **Live AI**.
 
 The free tier has per-minute and daily limits. If you hit one, the app shows a labelled demo answer and says why. Google may use free-tier requests to improve its products; the app only sends anonymous answers. The default model is `gemini-flash-latest` (Google's newest Flash model). Change it with `GEMINI_MODEL=`.
 
-**Badge still says Demonstration mode?** Open **Settings → AI configuration → Key check** and press **Test AI connection**. It shows which key file and keys the app found, the folder `.env.local` must be in, and the app version. `Start Preval.bat` also prints a key check when it starts, and it fixes the two most common Windows mistakes itself: a file saved as `.env.local.txt`, and a file saved in UTF-16 by PowerShell. Only one Preval window can run at a time.
+**Badge still says Demonstration mode?** Open **Settings → AI configuration → Key check** and press **Test AI connection**. It shows which key file and keys the app found, the folder `.env.local` must be in, and the app version. `Start Prevo.bat` also prints a key check when it starts, and it fixes the two most common Windows mistakes itself: a file saved as `.env.local.txt`, and a file saved in UTF-16 by PowerShell. Only one Prevo window can run at a time.
 
 **Paid options:** `ANTHROPIC_API_KEY` (Claude, https://console.anthropic.com/) or `OPENAI_API_KEY` (OpenAI, https://platform.openai.com/api-keys).
 
@@ -71,16 +71,20 @@ Notes:
 
 | Page | What it does |
 |---|---|
-| **Home** | Greeting, today's overview, daily wellness check-in (sleep, water, activity, mood) with a 7-day chart and streak, environment snapshot, recent records, habit reminders, tips, community-health info |
+| **Home** | Greeting, a daily Prevo score (0–100 from sleep, water, activity, mood and habits; a guide, not a medical score), daily wellness check-in (sleep, water, activity, mood) with a 7-day chart and streak, environment snapshot, recent records, habit reminders, tips, community-health info |
 | **Symptom Check** | A 4-step wizard: emergency warning signs, 77 searchable symptoms in 9 groups, free-text description, duration, severity and context. It gives a 4-level concern indicator and shows *what influenced it*, plus possible general causes, warning signs, when to seek care, prevention, and limitations |
 | **Tracker** | Add, edit and delete symptom records, see severity-over-time and frequency charts, and create a summary to share with a health professional (copy, .txt or print). A history of past symptom checks is shown below. Demo data is clearly labelled |
 | **Insights** | Pattern finder: compares symptom severity on days you met each sleep, water, activity and mood goal with days you didn't, with Pearson correlation and a scatter chart, plus an optional AI explanation (only summary numbers are sent). Also a printable 7-day health report and achievement badges |
-| **Assistant** | Chat for general health-education questions. Emergency wording triggers an urgent-care banner |
+| **Assistant** | Chat for general health-education questions, with voice input and read-aloud (browser speech). Emergency wording triggers an urgent-care banner |
 | **Environment** | Live air quality (US AQI, PM2.5/PM10), temperature, "feels like" heat, humidity, UV and a 7-day outlook, with health advice and an hour-by-hour "best time to be active outdoors" planner. Data from Open-Meteo |
 | **Disease Trends** | Live annual WHO Global Health Observatory data (TB incidence, measles cases) by country, plus links to official warning sources and a clearly **SIMULATED** seasonal-pattern teaching chart |
 | **Prevention** | 8 evidence-based topic cards with sources, a guided breathing exercise, first-aid basics (cuts, burns, nosebleeds, heat, sprains, bites, choking), plus a knowledge quiz |
 | **Research** | Objectives, the 3 phases, a comparison of existing app types, a feature checklist, a SUS usability survey, timed usability tasks, live performance and safety tests, and known limitations. Results can be exported as CSV |
 | **Settings & Privacy** | Theme, English/Thai, text size, high contrast, reduced motion, area, reminders, consent, JSON export, a one-click **presentation demo** (labelled example data) and **delete all data** |
+
+### Sharing
+
+The QR button at the top shows a QR code and link for the current website, handy for presentations and posters. Link previews (LINE, Messenger and others) use `public/og.png`.
 
 ## Safety design
 

@@ -154,7 +154,7 @@ export default function ResearchPage() {
                 <th className="py-2 pr-3">{th ? "ประเภท" : "Type"}</th>
                 <th className="py-2 pr-3">{th ? "จุดแข็ง" : "Strengths"}</th>
                 <th className="py-2 pr-3">{th ? "ข้อจำกัด" : "Limitations"}</th>
-                <th className="py-2">{th ? "Preval ตอบโจทย์อย่างไร" : "How Preval responds"}</th>
+                <th className="py-2">{th ? "Prevo ตอบโจทย์อย่างไร" : "How Prevo responds"}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[var(--border)]">

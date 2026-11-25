@@ -1,6 +1,6 @@
 {
-  "name": "Preval — Health awareness & illness prevention",
-  "short_name": "Preval",
+  "name": "Prevo — Health awareness & illness prevention",
+  "short_name": "Prevo",
   "description": "Educational, privacy-first health awareness prototype. Not a diagnostic tool.",
   "start_url": "/",
   "display": "standalone",

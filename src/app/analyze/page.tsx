@@ -3,6 +3,7 @@
 import { AlertTriangle, ArrowLeft, ArrowRight, BookOpen, Bot, CheckCircle2, ClipboardList, CloudSun, HeartHandshake, Info, Loader2, Printer, RotateCcw, Save, Search, ShieldCheck, Sparkles, Stethoscope, TriangleAlert } from "lucide-react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { MicButton, SpeakButton } from "@/components/Voice";
 import { EmergencyBox, LevelIcon, LevelScale } from "@/components/health";
 import { Badge, Button, Card, CardHeader, Chip, Field, inputCls, PageHeader } from "@/components/ui";
 import type { AnalysisResult } from "@/lib/demoCases";
@@ -215,7 +216,12 @@ export default function AnalyzePage() {
                     placeholder={lang === "th" ? "เช่น เจ็บคอตั้งแต่เมื่อวาน มีน้ำมูก รู้สึกเพลียเล็กน้อย…" : "e.g. My throat has been sore since yesterday, runny nose, a bit tired…"}
                   />
                 </Field>
-                <p className="text-right text-xs text-muted">{description.length}/1000</p>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="flex items-center gap-2 text-xs text-muted">
+                    <MicButton lang={lang} onText={(x) => setDescription((v) => ((v ? v + " " : "") + x).slice(0, 1000))} className="size-9" />
+                  </span>
+                  <p className="text-xs text-muted">{description.length}/1000</p>
+                </div>
                 {textFlags.length > 0 && (
                   <p className="flex items-start gap-2 rounded-xl bg-red-50 p-3 text-sm text-red-800 dark:bg-red-500/10 dark:text-red-200">
                     <AlertTriangle className="mt-0.5 size-4 shrink-0" />
@@ -437,6 +443,7 @@ function Results({ r, lang, onReset, onSave, saved, canSave, env, placeName }: {
         <CardHeader icon={<BookOpen className="size-5" />} title={lang === "th" ? "ภาพรวม" : "Overview"} action={r.mode === "ai" ? <Badge tone="green">AI</Badge> : <Badge tone="amber">{t("demo_mode", lang)}</Badge>} />
         <div className="space-y-6 px-5 pb-6">
           <p className="leading-relaxed">{a.summary}</p>
+          <SpeakButton text={a.summary} lang={lang} />
           <div>
             <h3 className="mb-2 text-sm font-semibold">{lang === "th" ? "สาเหตุทั่วไปที่เป็นไปได้ (ไม่ใช่การวินิจฉัย)" : "Possible general causes (not a diagnosis)"}</h3>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
