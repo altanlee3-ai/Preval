@@ -355,7 +355,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const exportData = useCallback(
-    () => JSON.stringify({ exportedAt: new Date().toISOString(), app: "PreventAI prototype", settings: { ...settings }, ...health, ...research }, null, 2),
+    () => JSON.stringify({ exportedAt: new Date().toISOString(), app: "Preval prototype", settings: { ...settings }, ...health, ...research }, null, 2),
     [settings, health, research],
   );
 

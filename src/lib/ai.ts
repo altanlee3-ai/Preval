@@ -87,7 +87,7 @@ async function geminiCall(model: string, body: GeminiBody, seconds: number): Pro
     return { r };
   } catch (e) {
     const reason = networkReason(e, seconds);
-    console.error(`[PreventAI] Gemini ${model}: ${reason}`);
+    console.error(`[Preval] Gemini ${model}: ${reason}`);
     return { netError: reason, timeout: reason.includes("timeout") || reason.includes("timed out") };
   }
 }

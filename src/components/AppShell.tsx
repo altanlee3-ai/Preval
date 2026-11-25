@@ -51,14 +51,14 @@ const MOBILE_MAIN = ["/", "/analyze", "/tracker", "/environment", "/assistant"];
 
 export function Logo({ compact }: { compact?: boolean }) {
   return (
-    <Link href="/" className="flex items-center gap-2.5" aria-label="PreventAI home">
+    <Link href="/" className="flex items-center gap-2.5" aria-label="Preval home">
       <span className="grid size-9 place-items-center rounded-xl bg-gradient-to-br from-brand-500 via-brand-600 to-teal-450 text-white shadow-lg shadow-brand-500/30">
         <HeartPulse className="size-5" />
       </span>
       {!compact && (
         <span className="leading-tight">
           <span className="block text-[1.05rem] font-bold tracking-tight">
-            Prevent<span className="text-brand-600 dark:text-brand-400">AI</span>
+            Pre<span className="text-brand-600 dark:text-brand-400">val</span>
           </span>
           <span className="block text-[11px] text-muted">STEAM prototype</span>
         </span>

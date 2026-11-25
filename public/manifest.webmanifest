@@ -1,6 +1,6 @@
 {
-  "name": "PreventAI — Health awareness & illness prevention",
-  "short_name": "PreventAI",
+  "name": "Preval — Health awareness & illness prevention",
+  "short_name": "Preval",
   "description": "Educational, privacy-first health awareness prototype. Not a diagnostic tool.",
   "start_url": "/",
   "display": "standalone",

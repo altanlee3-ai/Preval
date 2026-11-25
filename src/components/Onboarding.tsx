@@ -23,7 +23,7 @@ export function Onboarding() {
       icon: HeartPulse,
       body: (
         <>
-          <h2 className="text-2xl font-bold tracking-tight">{th ? "ยินดีต้อนรับสู่ PreventAI" : "Welcome to PreventAI"}</h2>
+          <h2 className="text-2xl font-bold tracking-tight">{th ? "ยินดีต้อนรับสู่ Preval" : "Welcome to Preval"}</h2>
           <p className="mt-2 text-muted">
             {th
               ? "แอปเพื่อการศึกษาที่ช่วยให้คุณเข้าใจอาการ ติดตามสุขภาพ และเรียนรู้วิธีป้องกันโรค"
@@ -51,7 +51,7 @@ export function Onboarding() {
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex gap-2">
               <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand-500" />
-              {th ? "PreventAI ไม่ใช่แพทย์ ไม่วินิจฉัยโรค และไม่สั่งยาหรือบอกขนาดยา" : "PreventAI is not a doctor. It does not diagnose, prescribe, or give medicine doses."}
+              {th ? "Preval ไม่ใช่แพทย์ ไม่วินิจฉัยโรค และไม่สั่งยาหรือบอกขนาดยา" : "Preval is not a doctor. It does not diagnose, prescribe, or give medicine doses."}
             </li>
             <li className="flex gap-2">
               <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand-500" />

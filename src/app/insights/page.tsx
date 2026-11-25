@@ -260,8 +260,8 @@ function WeeklyReport() {
         </p>
         <p className="text-xs text-muted">
           {th
-            ? "สร้างโดย PreventAI (ต้นแบบเพื่อการศึกษา) ไม่ใช่การวินิจฉัย นำรายงานนี้ไปคุยกับบุคลากรทางการแพทย์ได้"
-            : "Made with PreventAI (educational prototype). Not a diagnosis. You can bring this report to a health professional."}{" "}
+            ? "สร้างโดย Preval (ต้นแบบเพื่อการศึกษา) ไม่ใช่การวินิจฉัย นำรายงานนี้ไปคุยกับบุคลากรทางการแพทย์ได้"
+            : "Made with Preval (educational prototype). Not a diagnosis. You can bring this report to a health professional."}{" "}
           <Link href="/tracker" className="no-print underline">{th ? "ดูบันทึกทั้งหมด" : "See all records"}</Link>
         </p>
       </div>

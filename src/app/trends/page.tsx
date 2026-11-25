@@ -74,8 +74,8 @@ export default function TrendsPage() {
             </div>
             <p className="mt-1 text-sm text-muted">
               {lang === "th"
-                ? "PreventAI จะไม่สร้าง คาดเดา หรือจำลองคำเตือนการระบาด เนื่องจากยังไม่มีฟีดการแจ้งเตือนอย่างเป็นทางการที่เชื่อมต่อแบบอ่านได้ด้วยเครื่อง จึงไม่มีคำเตือนแสดงที่นี่ โปรดตรวจสอบจากแหล่งทางการด้านล่างเพื่อข้อมูลล่าสุด"
-                : "PreventAI never creates, guesses or simulates outbreak warnings. No machine-readable official alert feed is connected in this prototype, so no warnings are shown here. For current alerts, check the official sources below."}
+                ? "Preval จะไม่สร้าง คาดเดา หรือจำลองคำเตือนการระบาด เนื่องจากยังไม่มีฟีดการแจ้งเตือนอย่างเป็นทางการที่เชื่อมต่อแบบอ่านได้ด้วยเครื่อง จึงไม่มีคำเตือนแสดงที่นี่ โปรดตรวจสอบจากแหล่งทางการด้านล่างเพื่อข้อมูลล่าสุด"
+                : "Preval never creates, guesses or simulates outbreak warnings. No machine-readable official alert feed is connected in this prototype, so no warnings are shown here. For current alerts, check the official sources below."}
             </p>
           </div>
         </div>

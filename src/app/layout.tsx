@@ -4,11 +4,11 @@ import { StoreProvider } from "@/lib/store";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "PreventAI — Health awareness & illness prevention", template: "%s · PreventAI" },
+  title: { default: "Preval — Health awareness & illness prevention", template: "%s · Preval" },
   description: "An educational, privacy-first prototype that helps people understand symptoms, environmental health and prevention. Not a diagnostic tool.",
   manifest: "/manifest.webmanifest",
   icons: { icon: "/icons/icon.svg", apple: "/icons/icon-192.png" },
-  appleWebApp: { capable: true, title: "PreventAI", statusBarStyle: "default" },
+  appleWebApp: { capable: true, title: "Preval", statusBarStyle: "default" },
 };
 
 export const viewport: Viewport = {

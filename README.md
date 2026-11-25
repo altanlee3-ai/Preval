@@ -1,20 +1,20 @@
-# PreventAI: Health Awareness & Illness Prevention (STEAM prototype)
+# Preval: Health Awareness & Illness Prevention (STEAM prototype)
 
 **Prevention of Illness Using an App Interface and AI Analysis**, a Year 10 STEAM project.
 
-PreventAI is an educational, privacy-first web app. It helps people understand their symptoms, learn when to seek care, keep track of how they feel, and see environmental and public-health information. **It does not diagnose, prescribe or give medicine doses.**
+Preval is an educational, privacy-first web app. It helps people understand their symptoms, learn when to seek care, keep track of how they feel, and see environmental and public-health information. **It does not diagnose, prescribe or give medicine doses.**
 
 ---
 
 ## Quick start
 
-**Windows, easiest way:** install Node.js, then double-click **`Start PreventAI.bat`** in this folder. The first run installs everything. After that, it starts the app and opens your browser.
+**Windows, easiest way:** install Node.js, then double-click **`Start Preval.bat`** in this folder. The first run installs everything. After that, it starts the app and opens your browser.
 
 
 You need **Node.js 18.18 or newer** (20 or 22 recommended). Get it from https://nodejs.org.
 
 ```bash
-cd preventai
+cd preval
 npm install
 npm run dev
 ```
@@ -39,11 +39,11 @@ npm start
    GEMINI_API_KEY=your-key-here
    ```
    If you make it in Notepad, choose **Save as type: All Files** so it isn't saved as `.env.local.txt`.
-4. Close the PreventAI window and run `Start PreventAI.bat` again. The badge at the top changes from **Demonstration mode** to **Live AI**.
+4. Close the Preval window and run `Start Preval.bat` again. The badge at the top changes from **Demonstration mode** to **Live AI**.
 
 The free tier has per-minute and daily limits. If you hit one, the app shows a labelled demo answer and says why. Google may use free-tier requests to improve its products; the app only sends anonymous answers. The default model is `gemini-flash-latest` (Google's newest Flash model). Change it with `GEMINI_MODEL=`.
 
-**Badge still says Demonstration mode?** Open **Settings → AI configuration → Key check** and press **Test AI connection**. It shows which key file and keys the app found, the folder `.env.local` must be in, and the app version. `Start PreventAI.bat` also prints a key check when it starts, and it fixes the two most common Windows mistakes itself: a file saved as `.env.local.txt`, and a file saved in UTF-16 by PowerShell. Only one PreventAI window can run at a time.
+**Badge still says Demonstration mode?** Open **Settings → AI configuration → Key check** and press **Test AI connection**. It shows which key file and keys the app found, the folder `.env.local` must be in, and the app version. `Start Preval.bat` also prints a key check when it starts, and it fixes the two most common Windows mistakes itself: a file saved as `.env.local.txt`, and a file saved in UTF-16 by PowerShell. Only one Preval window can run at a time.
 
 **Paid options:** `ANTHROPIC_API_KEY` (Claude, https://console.anthropic.com/) or `OPENAI_API_KEY` (OpenAI, https://platform.openai.com/api-keys).
 
@@ -60,7 +60,7 @@ After `npm run build && npm start`, open the site in Chrome or Edge and choose *
 1. Put this folder in a GitHub repository. Never upload `.env.local`; it's already in `.gitignore`.
 2. Sign in at https://render.com with GitHub, choose **New → Blueprint**, and pick the repository. Render reads `render.yaml`.
 3. When Render asks for `GEMINI_API_KEY`, paste your free key from https://aistudio.google.com/apikey. You can also leave it empty to run in demo mode.
-4. Press **Apply**. The first build takes a few minutes, and then you get a link like `https://preventai.onrender.com`.
+4. Press **Apply**. The first build takes a few minutes, and then you get a link like `https://preval.onrender.com`.
 
 Notes:
 - On the free plan the site sleeps after about 15 minutes with no visitors. The next visit takes up to a minute to wake it.

@@ -1,6 +1,6 @@
 // Minimal offline support: cache the app shell and static assets; network-first for pages.
 // API responses (health analysis, chat) are never cached.
-const CACHE = "preventai-v2";
+const CACHE = "preval-v3";
 const SHELL = ["/", "/analyze", "/tracker", "/prevention", "/settings", "/manifest.webmanifest", "/icons/icon.svg"];
 
 self.addEventListener("install", (e) => {

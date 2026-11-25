@@ -28,7 +28,7 @@ export default function SettingsPage() {
     const blob = new Blob([exportData()], { type: "application/json" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = `preventai-data-${todayISO()}.json`;
+    a.download = `preval-data-${todayISO()}.json`;
     a.click();
     URL.revokeObjectURL(a.href);
   };
@@ -236,7 +236,7 @@ export default function SettingsPage() {
                 <KeyRound className="mr-1 inline size-3" />
                 GEMINI_API_KEY=your-key-here
               </pre>
-              <p className="mt-2">{th ? "4. ปิดหน้าต่าง PreventAI แล้วเปิด Start PreventAI.bat ใหม่ ป้าย \"AI จริง\" จะขึ้นด้านบน" : "4. Close the PreventAI window and run Start PreventAI.bat again. The \"Live AI\" badge will appear at the top."}</p>
+              <p className="mt-2">{th ? "4. ปิดหน้าต่าง Preval แล้วเปิด Start Preval.bat ใหม่ ป้าย \"AI จริง\" จะขึ้นด้านบน" : "4. Close the Preval window and run Start Preval.bat again. The \"Live AI\" badge will appear at the top."}</p>
               <p className="mt-2 text-xs text-muted">
                 {th
                   ? "รุ่นฟรีมีขีดจำกัดจำนวนครั้งต่อนาทีและต่อวัน หากเกินจะแสดงตัวอย่างสาธิตแทน Google อาจใช้ข้อมูลที่ส่งในรุ่นฟรีเพื่อปรับปรุงบริการ แอปนี้ส่งเฉพาะคำตอบที่ไม่ระบุตัวตน"
@@ -306,8 +306,8 @@ export default function SettingsPage() {
           <div className="space-y-3 px-5 pb-5 text-sm">
             <p>
               {th
-                ? "PreventAI เป็นต้นแบบเพื่อการศึกษาสำหรับโครงงาน STEAM ระดับมัธยมศึกษาปีที่ 4 ไม่ใช่อุปกรณ์ทางการแพทย์ และไม่ให้การวินิจฉัย การสั่งยา หรือขนาดยา"
-                : "PreventAI is an educational prototype for a Year 10 STEAM project. It is not a medical device and does not provide diagnoses, prescriptions or dosages."}
+                ? "Preval เป็นต้นแบบเพื่อการศึกษาสำหรับโครงงาน STEAM ระดับมัธยมศึกษาปีที่ 4 ไม่ใช่อุปกรณ์ทางการแพทย์ และไม่ให้การวินิจฉัย การสั่งยา หรือขนาดยา"
+                : "Preval is an educational prototype for a Year 10 STEAM project. It is not a medical device and does not provide diagnoses, prescriptions or dosages."}
             </p>
             <ul className="list-disc space-y-1 pl-5 text-muted">
               <li>{th ? "ระดับความกังวลใช้กฎที่โปร่งใสและระมัดระวัง ยังไม่ผ่านการตรวจสอบทางคลินิก" : "Concern levels use transparent, conservative rules that have not been clinically validated."}</li>
